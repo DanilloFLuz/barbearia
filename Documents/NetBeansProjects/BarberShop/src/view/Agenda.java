@@ -5,17 +5,24 @@
  */
 package view;
 
+import controller.AgendaController;
+import javax.swing.JTable;
+
 /**
  *
  * @author danil
  */
 public class Agenda extends javax.swing.JFrame {
 
+    private final AgendaController controller;
+
     /**
      * Creates new form Agenda
      */
     public Agenda() {
         initComponents();
+        this.controller = new AgendaController(this);
+        iniciar();
     }
 
     /**
@@ -42,13 +49,14 @@ public class Agenda extends javax.swing.JFrame {
         jLabelNome = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableAgendamento = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabelPainel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agenda");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -109,26 +117,26 @@ public class Agenda extends javax.swing.JFrame {
         jLabel2.setText("Observação");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, 20));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableAgendamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Nome", "Serviço", "Valor", "Data", "Hora"
+                "ID", "Nome", "Serviço", "Valor", "Data", "Hora", "Observação"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(TableAgendamento);
+        if (TableAgendamento.getColumnModel().getColumnCount() > 0) {
+            TableAgendamento.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 840, 240));
 
@@ -183,6 +191,7 @@ public class Agenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableAgendamento;
     private javax.swing.JButton jButtonAgendar;
     private javax.swing.JComboBox<String> jComboBoxCliente;
     private javax.swing.JComboBox<String> jComboBoxServico;
@@ -197,11 +206,23 @@ public class Agenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelValor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldData;
     private javax.swing.JTextField jTextFieldHora;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
+
+    private void iniciar() {
+        this.controller.atualizaTabela();
+    }
+
+    public JTable getTableAgendamento() {
+        return TableAgendamento;
+    }
+
+    public void setTableAgendamento(JTable TableAgendamento) {
+        this.TableAgendamento = TableAgendamento;
+    }
+    
 }

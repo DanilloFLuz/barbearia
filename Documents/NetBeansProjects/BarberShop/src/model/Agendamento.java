@@ -69,7 +69,12 @@ public class Agendamento {
     public void setData(Date data) {
         this.data = data;
     }
-
+    public String getDataFormatada(){
+        return new SimpleDateFormat("dd/MM/yyyy").format(data);
+    }
+    public String getHoraFormatada(){
+        return new SimpleDateFormat("HH:mm").format(data);
+    }
     public String getObservacao() {
         return observacao;
     }
