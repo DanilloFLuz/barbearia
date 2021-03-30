@@ -6,6 +6,7 @@
 package view;
 
 import controller.AgendaController;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 
 /**
@@ -68,11 +69,9 @@ public class Agenda extends javax.swing.JFrame {
         getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 230, -1));
 
         jComboBoxCliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBoxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alan", "Pedro", "Giovane" }));
         getContentPane().add(jComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 230, -1));
 
         jComboBoxServico.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Corte", "Barba", "Corte + Barba" }));
         getContentPane().add(jComboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 230, -1));
 
         jTextFieldValor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -215,6 +214,8 @@ public class Agenda extends javax.swing.JFrame {
 
     private void iniciar() {
         this.controller.atualizaTabela();
+        this.controller.atualizaCliente();
+        this.controller.atualizaServico();
     }
 
     public JTable getTableAgendamento() {
@@ -223,6 +224,22 @@ public class Agenda extends javax.swing.JFrame {
 
     public void setTableAgendamento(JTable TableAgendamento) {
         this.TableAgendamento = TableAgendamento;
+    }
+
+    public JComboBox<String> getjComboBoxCliente() {
+        return jComboBoxCliente;
+    }
+
+    public void setjComboBoxCliente(JComboBox<String> jComboBoxCliente) {
+        this.jComboBoxCliente = jComboBoxCliente;
+    }
+
+    public JComboBox<String> getjComboBoxServico() {
+        return jComboBoxServico;
+    }
+
+    public void setjComboBoxServico(JComboBox<String> jComboBoxServico) {
+        this.jComboBoxServico = jComboBoxServico;
     }
     
 }
