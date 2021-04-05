@@ -19,6 +19,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
+        setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         this.controller = new  MenuPrincipalController(this);
     }
@@ -43,6 +44,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/fundo-MenuPrincipal.jpg"))); // NOI18N
 
@@ -88,6 +90,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAgendaActionPerformed
