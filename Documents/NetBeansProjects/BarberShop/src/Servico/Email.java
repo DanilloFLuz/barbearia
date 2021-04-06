@@ -59,7 +59,7 @@ public class Email {
         SimpleEmail email = new SimpleEmail();
             email.setSSLOnConnect(true);
             email.setHostName("smtp.gmail.com");
-            email.setSslSmtpPort("587");
+            email.setSslSmtpPort("465");
        email.setAuthenticator(new DefaultAuthenticator(REMETENTE_NOME, REMETENTE_SENHA));
        try {
            email.setFrom(REMETENTE_NOME);
