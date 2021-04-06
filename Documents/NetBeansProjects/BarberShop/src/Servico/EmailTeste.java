@@ -15,7 +15,7 @@ public class EmailTeste {
         Email email = new Email(
                 "Assunto padrão", 
                 "Mensagem padrão", 
-                "danillo_fel98@hotmail.com");
+                "");// Colocar
         
         email.enviar();
         

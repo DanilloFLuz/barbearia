@@ -8,8 +8,8 @@ import org.apache.commons.mail.SimpleEmail;
  * Classe responsável por enviar E-mail.
  */
 public class Email {
-    static final String REMETENTE_NOME = "danillo.feliciano@gmail.com";
-    static final String REMETENTE_SENHA = "Picanha123";
+    static final String REMETENTE_NOME = ""; //Colocar seu email
+    static final String REMETENTE_SENHA = ""; //Colocar a senha.
     private String assunto ;
     private String mensagem;
     private String destinatario;
